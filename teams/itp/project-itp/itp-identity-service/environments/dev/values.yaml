@@ -1,4 +1,4 @@
-_base-identity:
+base-identity:
   deployments:
     api:
       replicaCount: 1

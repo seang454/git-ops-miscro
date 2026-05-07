@@ -1,4 +1,4 @@
-_infra-gateway:
+infra-gateway:
   deployments:
     gateway:
       replicaCount: 1

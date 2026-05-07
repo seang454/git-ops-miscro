@@ -1,4 +1,4 @@
-_base-frontend:
+base-frontend:
   deployments:
     app:
       replicaCount: 1

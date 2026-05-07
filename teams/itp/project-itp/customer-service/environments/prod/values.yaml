@@ -1,4 +1,4 @@
-_base:
+base:
   deployments:
     api:
       replicaCount: 3

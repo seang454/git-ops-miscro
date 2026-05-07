@@ -1,4 +1,4 @@
-_infra-eureka:
+infra-eureka:
   deployments:
     eureka:
       replicaCount: 1

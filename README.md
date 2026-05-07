@@ -70,19 +70,19 @@ Example service chart dependency:
 
 ```yaml
 dependencies:
-  - name: _base
+  - name: base
     version: "1.0.0"
-    repository: "oci://ghcr.io/YOUR_ORG_OR_USERNAME/charts"
+    repository: "oci://ghcr.io/seang454/git-infra-miscro/charts"
 ```
 
 Change the chart version only when you want that service to use a newer shared
 chart from `git-infra-miscro`.
 
 Environment value files must override the dependency chart name. For example,
-`account-service` depends on `_base`, so its dev values use `_base:`:
+`account-service` depends on `base`, so its dev values use `base:`:
 
 ```yaml
-_base:
+base:
   deployments:
     api:
       image:
@@ -90,7 +90,7 @@ _base:
         tag: "dev-latest"
 ```
 
-The shared defaults for `_base` live in `git-infra-miscro/charts/_base/values.yaml`.
+The shared defaults for `base` live in `git-infra-miscro/charts/base/values.yaml`.
 
 ## Adding a New Service
 

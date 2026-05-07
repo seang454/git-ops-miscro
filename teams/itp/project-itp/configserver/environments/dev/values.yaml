@@ -1,4 +1,4 @@
-_infra-configserver:
+infra-configserver:
   deployments:
     config:
       replicaCount: 1

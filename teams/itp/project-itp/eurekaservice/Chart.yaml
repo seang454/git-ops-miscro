@@ -3,6 +3,6 @@ name: eurekaservice
 version: 1.0.0
 type: application
 dependencies:
-  - name: _infra-eureka
+  - name: infra-eureka
     version: "1.0.0"
-    repository: "oci://registry.your-org.com/charts"
+    repository: "oci://ghcr.io/seang454/git-infra-miscro/charts"
