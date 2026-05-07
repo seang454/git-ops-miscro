@@ -111,7 +111,12 @@ from GHCR using the version in each service `Chart.yaml`.
 
 ## Apply Argo CD Config
 
+Bootstrap the root application once:
+
 ```bash
-kubectl apply -f argocd/projects/itp-project.yaml
-kubectl apply -f argocd/applicationset.yaml
+kubectl apply -f argocd/root-application.yaml
 ```
+
+After that, Argo CD manages the `argocd/` folder from Git. The root application
+syncs `projects/itp-project.yaml` first, then `applicationset.yaml`, which
+generates one Application per service and environment.
