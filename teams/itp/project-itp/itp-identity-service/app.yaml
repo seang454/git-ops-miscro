@@ -1,0 +1,3 @@
+service: itp-identity-service
+chartPath: teams/itp/project-itp/itp-identity-service
+wave: "2"

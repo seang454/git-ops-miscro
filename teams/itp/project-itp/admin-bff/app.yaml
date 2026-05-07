@@ -1,0 +1,3 @@
+service: admin-bff
+chartPath: teams/itp/project-itp/admin-bff
+wave: "3"

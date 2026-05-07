@@ -1,0 +1,18 @@
+_base-identity:
+  deployments:
+    api:
+      replicaCount: 1
+      image:
+        repository: your-registry/itp-identity-service
+        tag: "dev-latest"
+      ingress:
+        host: dev-identity.yourdomain.com
+      env:
+        SPRING_PROFILES_ACTIVE: "dev"
+
+  configmap:
+    data:
+      JWT_EXPIRATION: "86400"
+
+  secret:
+    enabled: false

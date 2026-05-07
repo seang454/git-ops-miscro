@@ -1,0 +1,3 @@
+service: customer-service
+chartPath: teams/itp/project-itp/customer-service
+wave: "2"

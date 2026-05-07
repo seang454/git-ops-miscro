@@ -1,0 +1,60 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: itp-microservices
+  namespace: argocd
+spec:
+  generators:
+    - matrix:
+        generators:
+          # Axis 1: auto-discover every service metadata file
+          - git:
+              repoURL: https://github.com/your-org/git-ops-repo
+              revision: HEAD
+              files:
+                - path: teams/itp/project-itp/*/app.yaml
+
+          # Axis 2: environments
+          - list:
+              elements:
+                - env: dev
+                  cluster: https://dev-k8s.yourdomain.com
+                - env: prod
+                  cluster: https://prod-k8s.yourdomain.com
+
+  template:
+    metadata:
+      # e.g: account-service-dev, gateway-server-prod
+      name: '{{service}}-{{env}}'
+      annotations:
+        app.kubernetes.io/team: itp
+        app.kubernetes.io/project: project-itp
+        argocd.argoproj.io/sync-wave: '{{wave}}'
+
+    spec:
+      project: itp-project
+
+      source:
+        repoURL: https://github.com/your-org/git-ops-repo
+        targetRevision: HEAD
+        path: '{{chartPath}}'
+        helm:
+          valueFiles:
+            - environments/{{env}}/values.yaml   # env overrides for infra chart defaults
+
+      destination:
+        server: '{{cluster}}'
+        namespace: 'itp-{{service}}-{{env}}'
+        # generates:
+        #   itp-account-service-dev
+        #   itp-account-service-prod
+        #   itp-gateway-server-prod ...
+
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+          - ApplyOutOfSyncOnly=true
+          - PrunePropagationPolicy=foreground

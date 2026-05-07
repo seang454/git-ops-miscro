@@ -1,0 +1,12 @@
+_base-frontend:
+  deployments:
+    app:
+      replicaCount: 1
+      image:
+        repository: your-registry/next-shadcn-dashboard
+        tag: "dev-latest"
+      ingress:
+        host: dev-next-shadcn-dashboard.yourdomain.com
+      env:
+        NODE_ENV: "development"
+        API_URL: "http://dev-gateway-server:8080"

@@ -1,0 +1,17 @@
+_infra-eureka:
+  deployments:
+    eureka:
+      replicaCount: 2
+      image:
+        repository: your-registry/eurekaservice
+        tag: "v1.0.0"
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "200m"
+      env:
+        SPRING_PROFILES_ACTIVE: "prod"
+
+  eureka:
+    config:
+      selfPreservation: true

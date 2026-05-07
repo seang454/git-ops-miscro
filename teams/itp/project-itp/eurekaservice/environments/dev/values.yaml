@@ -1,0 +1,9 @@
+_infra-eureka:
+  deployments:
+    eureka:
+      replicaCount: 1
+      image:
+        repository: your-registry/eurekaservice
+        tag: "dev-latest"
+      env:
+        SPRING_PROFILES_ACTIVE: "dev"

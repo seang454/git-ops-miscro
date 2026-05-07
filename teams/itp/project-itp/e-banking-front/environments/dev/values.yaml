@@ -1,0 +1,12 @@
+_base-frontend:
+  deployments:
+    app:
+      replicaCount: 1
+      image:
+        repository: your-registry/e-banking-front
+        tag: "dev-latest"
+      ingress:
+        host: dev-e-banking-front.yourdomain.com
+      env:
+        NODE_ENV: "development"
+        API_URL: "http://dev-gateway-server:8080"

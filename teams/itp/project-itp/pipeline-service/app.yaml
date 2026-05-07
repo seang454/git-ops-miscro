@@ -1,0 +1,3 @@
+service: pipeline-service
+chartPath: teams/itp/project-itp/pipeline-service
+wave: "2"

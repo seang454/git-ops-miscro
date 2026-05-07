@@ -1,0 +1,3 @@
+service: configserver
+chartPath: teams/itp/project-itp/configserver
+wave: "0"

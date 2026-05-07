@@ -1,0 +1,20 @@
+_base:
+  deployments:
+    api:
+      replicaCount: 1
+      image:
+        repository: your-registry/customer-service
+        tag: "dev-latest"
+      ingress:
+        host: dev-customer-service.yourdomain.com
+      hpa:
+        enabled: false
+      resources:
+        requests:
+          memory: "128Mi"
+          cpu: "50m"
+        limits:
+          memory: "256Mi"
+          cpu: "100m"
+      env:
+        SPRING_PROFILES_ACTIVE: "dev"

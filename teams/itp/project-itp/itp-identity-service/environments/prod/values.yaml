@@ -1,0 +1,20 @@
+_base-identity:
+  deployments:
+    api:
+      replicaCount: 3
+      image:
+        repository: your-registry/itp-identity-service
+        tag: "v1.0.0"
+      ingress:
+        host: identity.yourdomain.com
+      hpa:
+        enabled: true
+        minReplicas: 3
+        maxReplicas: 10
+      env:
+        SPRING_PROFILES_ACTIVE: "prod"
+
+  secret:
+    enabled: true
+    data:
+      JWT_SECRET: "your-prod-secret-here"

@@ -1,0 +1,11 @@
+_infra-gateway:
+  deployments:
+    gateway:
+      replicaCount: 1
+      image:
+        repository: your-registry/gateway-server
+        tag: "dev-latest"
+      ingress:
+        host: dev-api.yourdomain.com
+      env:
+        SPRING_PROFILES_ACTIVE: "dev"

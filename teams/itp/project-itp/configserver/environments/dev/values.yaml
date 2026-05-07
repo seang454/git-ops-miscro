@@ -1,0 +1,13 @@
+_infra-configserver:
+  deployments:
+    config:
+      replicaCount: 1
+      image:
+        repository: your-registry/configserver
+        tag: "dev-latest"
+      env:
+        SPRING_PROFILES_ACTIVE: "dev"
+
+  configserver:
+    config:
+      branch: "dev"

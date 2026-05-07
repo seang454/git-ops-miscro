@@ -1,0 +1,3 @@
+service: account-service
+chartPath: teams/itp/project-itp/account-service
+wave: "2"

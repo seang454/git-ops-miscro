@@ -1,0 +1,3 @@
+service: front-bff
+chartPath: teams/itp/project-itp/front-bff
+wave: "3"

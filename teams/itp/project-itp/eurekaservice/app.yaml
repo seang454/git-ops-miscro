@@ -1,0 +1,3 @@
+service: eurekaservice
+chartPath: teams/itp/project-itp/eurekaservice
+wave: "1"

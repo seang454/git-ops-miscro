@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: itp-project
+  namespace: argocd
+spec:
+  description: ITP Microservice Project
+
+  sourceRepos:
+    - https://github.com/your-org/git-ops-repo
+
+  destinations:
+    - server: https://dev-k8s.yourdomain.com
+      namespace: "itp-*"
+    - server: https://prod-k8s.yourdomain.com
+      namespace: "itp-*"
+
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace

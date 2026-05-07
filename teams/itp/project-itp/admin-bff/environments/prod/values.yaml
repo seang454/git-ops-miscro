@@ -1,0 +1,23 @@
+_base:
+  deployments:
+    api:
+      replicaCount: 3
+      image:
+        repository: your-registry/admin-bff
+        tag: "v1.0.0"
+      ingress:
+        host: admin-bff.yourdomain.com
+      hpa:
+        enabled: true
+        minReplicas: 3
+        maxReplicas: 10
+        cpuUtilization: 60
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "200m"
+        limits:
+          memory: "1Gi"
+          cpu: "500m"
+      env:
+        SPRING_PROFILES_ACTIVE: "prod"

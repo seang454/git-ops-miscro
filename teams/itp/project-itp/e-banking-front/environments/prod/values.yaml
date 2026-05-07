@@ -1,0 +1,19 @@
+_base-frontend:
+  deployments:
+    app:
+      replicaCount: 2
+      image:
+        repository: your-registry/e-banking-front
+        tag: "v1.0.0"
+      ingress:
+        host: e-banking-front.yourdomain.com
+      resources:
+        requests:
+          memory: "256Mi"
+          cpu: "100m"
+        limits:
+          memory: "512Mi"
+          cpu: "300m"
+      env:
+        NODE_ENV: "production"
+        API_URL: "https://api.yourdomain.com"

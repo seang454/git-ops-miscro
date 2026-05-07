@@ -1,0 +1,8 @@
+apiVersion: v2
+name: gateway-server
+version: 1.0.0
+type: application
+dependencies:
+  - name: _infra-gateway
+    version: "1.0.0"
+    repository: "oci://registry.your-org.com/charts"

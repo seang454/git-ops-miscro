@@ -1,0 +1,15 @@
+_infra-gateway:
+  deployments:
+    gateway:
+      replicaCount: 3
+      image:
+        repository: your-registry/gateway-server
+        tag: "v1.0.0"
+      ingress:
+        host: api.yourdomain.com
+      hpa:
+        enabled: true
+        minReplicas: 3
+        maxReplicas: 15
+      env:
+        SPRING_PROFILES_ACTIVE: "prod"

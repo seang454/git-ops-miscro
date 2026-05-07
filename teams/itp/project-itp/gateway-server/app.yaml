@@ -1,0 +1,3 @@
+service: gateway-server
+chartPath: teams/itp/project-itp/gateway-server
+wave: "4"
