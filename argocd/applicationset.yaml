@@ -9,7 +9,7 @@ spec:
         generators:
           # Axis 1: auto-discover every service metadata file
           - git:
-              repoURL: https://github.com/your-org/git-ops-repo
+              repoURL: https://github.com/seang454/git-ops-miscro
               revision: HEAD
               files:
                 - path: teams/itp/project-itp/*/app.yaml
@@ -18,9 +18,9 @@ spec:
           - list:
               elements:
                 - env: dev
-                  cluster: https://dev-k8s.yourdomain.com
+                  cluster: https://34.151.80.25:6443
                 - env: prod
-                  cluster: https://prod-k8s.yourdomain.com
+                  cluster: https://34.151.80.25:6443
 
   template:
     metadata:
@@ -35,7 +35,7 @@ spec:
       project: itp-project
 
       source:
-        repoURL: https://github.com/your-org/git-ops-repo
+        repoURL: https://github.com/seang454/git-ops-miscro
         targetRevision: HEAD
         path: '{{chartPath}}'
         helm:
