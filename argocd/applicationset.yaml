@@ -28,6 +28,10 @@ spec:
     metadata:
       # e.g: account-service-dev, gateway-server-prod
       name: '{{service}}-{{env}}'
+      labels:
+        app.kubernetes.io/team: itp
+        app.kubernetes.io/project: project-itp
+        platform.io/wave: 'wave-{{wave}}'
       annotations:
         app.kubernetes.io/team: itp
         app.kubernetes.io/project: project-itp
@@ -53,9 +57,6 @@ spec:
         #   itp-gateway-server-prod ...
 
       syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
         syncOptions:
           - CreateNamespace=true
           - ApplyOutOfSyncOnly=true
